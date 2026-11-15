@@ -1,22 +1,32 @@
+:root {
+    --color-texto: #3b2f2f;
+    --color-borde: #d9c9a8;
+    --color-principal: #8b4513;
+    --color-principal-hover: #6d360f;
+    --color-secundario: #7a6a58;
+    --color-tarjeta: #ffffff;
+    --color-peligro: #c62828;
+    --color-peligro-hover: #9e1f1f;
+}
+
 * {
-    margin: 0%;
-    padding: 0%;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
 body {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     background-color: lightyellow;
+    color: var(--color-texto);
     padding: 20px;
     line-height: 1.6;
 }
 
 .contenedor {
-    max-width: 100%;
-    margin: 0%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
-
-
 
 .header {
     background-color: beige;
@@ -36,7 +46,6 @@ body {
     font-size: 0.95rem;
 }
 
-
 main.contenedor {
     padding-top: 25px;
     padding-bottom: 40px;
@@ -46,7 +55,6 @@ section h2 {
     font-size: 1.4rem;
     margin-bottom: 18px;
 }
-
 
 .seccion-catalogo {
     margin-bottom: 40px;
@@ -82,7 +90,6 @@ section h2 {
     margin-bottom: 15px;
 }
 
-
 .lista-productos {
     display: grid;
     grid-template-columns: 1fr;
@@ -103,7 +110,6 @@ section h2 {
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.09);
 }
 
-
 .lista-productos img {
     width: 100%;
     height: 180px;
@@ -111,7 +117,6 @@ section h2 {
     border-radius: 8px;
     margin-bottom: 12px;
 }
-
 
 .lista-productos h3 {
     font-size: 1.1rem;
@@ -121,8 +126,6 @@ section h2 {
 .lista-productos p {
     margin-bottom: 10px;
 }
-
-
 
 .lista-productos .agotado,
 .lista-productos .producto-agotado,
@@ -139,6 +142,15 @@ section h2 {
     color: var(--color-secundario);
 }
 
+.etiqueta-agotado {
+    display: inline-block;
+    background-color: var(--color-peligro);
+    color: white;
+    font-size: 0.8rem;
+    font-weight: bold;
+    padding: 2px 10px;
+    border-radius: 12px;
+}
 
 button {
     font-family: inherit;
@@ -161,7 +173,6 @@ button {
     background-color: var(--color-principal-hover);
 }
 
-
 button:disabled {
     background-color: lightgray !important;
     color: lightslategray !important;
@@ -169,9 +180,6 @@ button:disabled {
     opacity: 0.75;
     border-color: lightgray !important;
 }
-
-
-
 
 .seccion-carrito {
     background-color: lightyellow;
@@ -195,17 +203,42 @@ button:disabled {
     padding: 14px;
 }
 
+.lista-carrito p {
+    margin-bottom: 6px;
+}
+
+.lista-carrito button {
+    background-color: var(--color-principal);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.lista-carrito button:hover:not(:disabled) {
+    background-color: var(--color-principal-hover);
+}
+
+.lista-carrito button[data-accion="eliminar"] {
+    background-color: var(--color-peligro);
+    margin-top: 6px;
+}
+
+.lista-carrito button[data-accion="eliminar"]:hover:not(:disabled) {
+    background-color: var(--color-peligro-hover);
+}
 
 #vaciar-carrito {
-    background-color: red;
+    background-color: var(--color-peligro);
     width: 100%;
     margin-bottom: 20px;
 }
 
 #vaciar-carrito:hover:not(:disabled) {
-    background-color: red;
+    background-color: var(--color-peligro-hover);
 }
-
 
 .resumen-compra {
     background-color: beige;
