@@ -1,6 +1,5 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,56 +7,54 @@
     <link rel="stylesheet" href="style.css">
     <script src="app.js" defer></script>
     <title>Tienda Virtual</title>
-
 </head>
 <body>
     <header class="header">
         <div class="contenedor">
             <h1>Tienda Virtual</h1>
-            <p>Buscale papa nuestros productos y realiza tu compra gato.</p>
+            <p>Explora nuestros productos y realiza tu compra de forma fácil y segura.</p>
         </div>
     </header>
     <main class="contenedor">
-        <!--productos-->
-        <section id="catalogo" class="seccion-catalogo">
 
+        <section id="catalogo" class="seccion-catalogo">
             <h2>Catálogo de productos</h2>
-            <!--categoria-->
+
             <nav id="filtros-categorias" class="filtros-categorias" aria-label="Filtrar productos por categoría">
             </nav>
-            <!--productos -->
+
             <p id="contador-productos" aria-live="polite">
                 Mostrando 0 productos
             </p>
 
-            <!-- aca JavaScript generará las tarjetas -->
             <div id="lista-productos" class="lista-productos">
             </div>
-
         </section>
-        <section id="carrito" class="seccion-carrito">
 
+        <section id="carrito" class="seccion-carrito">
             <h2>Carrito de compras</h2>
-            <!-- Aquí aparecerán los productos agregados esteban o_o/jose jose jeje -->
+
             <div id="lista-carrito" class="lista-carrito" aria-live="polite">
                 <p>Tu carrito está vacío</p>
             </div>
+
             <button id="vaciar-carrito" type="button">
                 Vaciar carrito
             </button>
+
             <section id="resumen-compra" class="resumen-compra">
                 <h3>Resumen de la compra</h3>
                 <p>
-                    Artículos:<span id="total-articulos">0</span>
+                    Artículos: <span id="total-articulos">0</span>
                 </p>
                 <p>
-                    Subtotal:<span id="subtotal">$ 0</span>
+                    Subtotal: <span id="subtotal">$ 0</span>
                 </p>
                 <p>
-                    Descuento:<span id="descuento">$ 0</span>
+                    Descuento: <span id="descuento">$ 0</span>
                 </p>
                 <p>
-                    Total:<strong id="total-compra">$ 0</strong>
+                    Total: <strong id="total-compra">$ 0</strong>
                 </p>
             </section>
         </section>
