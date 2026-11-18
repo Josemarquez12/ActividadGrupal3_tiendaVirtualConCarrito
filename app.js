@@ -1,8 +1,5 @@
 "use strict";
 
-/* ==========================================================
-   1. DATOS
-   ========================================================== */
 const productos = [
     { id: 1, nombre: "Teclado mecánico",     precio: 180000,  categoria: "Periféricos", stock: 5 },
     { id: 2, nombre: "Mouse inalámbrico",    precio: 60000,   categoria: "Periféricos", stock: 8 },
@@ -17,16 +14,12 @@ const productos = [
 const UMBRAL_DESCUENTO = 300000;
 const PORCENTAJE_DESCUENTO = 0.10;
 
-/* ==========================================================
-   2. ESTADO
-   ========================================================== */
+
 // Cada elemento: { id, cantidad }
 let carrito = [];
 let categoriaActiva = "Todas";
 
-/* ==========================================================
-   3. REFERENCIAS AL DOM
-   ========================================================== */
+
 const contenedorFiltros   = document.getElementById("filtros-categorias");
 const contadorProductos   = document.getElementById("contador-productos");
 const listaProductos      = document.getElementById("lista-productos");
@@ -37,9 +30,7 @@ const spanSubtotal        = document.getElementById("subtotal");
 const spanDescuento       = document.getElementById("descuento");
 const strongTotal         = document.getElementById("total-compra");
 
-/* ==========================================================
-   4. FUNCIONES AUXILIARES
-   ========================================================== */
+
 function formatearDinero(valor) {
     return "$ " + valor.toLocaleString("es-CO");
 }
@@ -72,9 +63,7 @@ function obtenerCategorias() {
     return categorias;
 }
 
-/* ==========================================================
-   5. RENDER: FILTROS
-   ========================================================== */
+
 function renderizarFiltros() {
     const categorias = ["Todas"].concat(obtenerCategorias());
     contenedorFiltros.innerHTML = "";
@@ -91,9 +80,7 @@ function renderizarFiltros() {
     });
 }
 
-/* ==========================================================
-   6. RENDER: CATÁLOGO
-   ========================================================== */
+
 function renderizarCatalogo() {
     const visibles = productos.filter(function (p) {
         return categoriaActiva === "Todas" || p.categoria === categoriaActiva;
@@ -151,9 +138,7 @@ function renderizarCatalogo() {
         (visibles.length === 1 ? " producto" : " productos");
 }
 
-/* ==========================================================
-   7. RENDER: CARRITO
-   ========================================================== */
+
 function renderizarCarrito() {
     listaCarrito.innerHTML = "";
 
@@ -223,9 +208,7 @@ function renderizarCarrito() {
     });
 }
 
-/* ==========================================================
-   8. RENDER: RESUMEN
-   ========================================================== */
+
 function renderizarResumen() {
     let articulos = 0;
     let subtotal = 0;
@@ -249,18 +232,14 @@ function renderizarResumen() {
     strongTotal.textContent = formatearDinero(total);
 }
 
-/* ==========================================================
-   9. ACTUALIZAR TODA LA INTERFAZ
-   ========================================================== */
+
 function actualizarVista() {
     renderizarCatalogo();
     renderizarCarrito();
     renderizarResumen();
 }
 
-/* ==========================================================
-   10. LÓGICA DEL CARRITO
-   ========================================================== */
+
 function agregarAlCarrito(id) {
     const producto = buscarProducto(id);
     if (!producto) return;
@@ -298,9 +277,7 @@ function vaciarCarrito() {
     carrito = [];
 }
 
-/* ==========================================================
-   11. EVENTOS
-   ========================================================== */
+
 // Filtros por categoría
 contenedorFiltros.addEventListener("click", function (evento) {
     const boton = evento.target.closest("button");
@@ -350,8 +327,5 @@ botonVaciar.addEventListener("click", function () {
     actualizarVista();
 });
 
-/* ==========================================================
-   12. INICIO
-   ========================================================== */
 renderizarFiltros();
 actualizarVista();
